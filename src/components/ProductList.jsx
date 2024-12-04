@@ -35,7 +35,7 @@ export default function ProductList() {
       product.title.toLowerCase().includes(searchText.toLowerCase())
     );
     setShowingProducts(filterProducts);
-  }, 2000);
+  }, 300);
   function onSearch(searchText) {
     doSearch(searchText);
   }
@@ -136,6 +136,11 @@ export default function ProductList() {
                   showingProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
                   ))}
+              {!loading && showingProducts.length === 0 && (
+                <div className="text-center text-gray-500">
+                  No products found.
+                </div>
+              )}
             </div>
           </div>
         </div>
